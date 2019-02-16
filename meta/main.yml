@@ -1,0 +1,16 @@
+galaxy_info:
+  role_name: ansible-role-apache
+  author: pgustafs
+  description: Very simpla role for Installing Apache
+  company: Red Hat, Inc.
+  license: GPLv3
+  min_ansible_version: 2.4
+  platforms:
+    - name: EL
+      versions:
+        - 7
+
+  galaxy_tags:
+    - rhnordics
+
+dependencies: []

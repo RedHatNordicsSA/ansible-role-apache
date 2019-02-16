@@ -1,0 +1,5 @@
+# Handlers for ansible-role-apache
+- name: restart apache
+  service:
+    name: httpd
+    state: restarted

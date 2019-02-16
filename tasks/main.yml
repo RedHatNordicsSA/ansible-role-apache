@@ -1,0 +1,19 @@
+# role tasks
+- name: Install Apache.
+  package:
+    name: httpd
+    state: "{{ apache_package_state }}"
+
+- name: Ensure Apache has selected state.
+  service:
+    name: httpd
+    state: "{{ apache_service_state }}"
+    enabled: "{{ apache_service_enabled }}"
+
+- name: Configure Apache listen port.
+  lineinfile:
+    path: /etc/httpd/conf/httpd.conf
+    regexp: '^Listen '
+    insertafter: '^#Listen '
+    line: "Listen {{ apache_listen_port }}"
+  notify: restart apache
