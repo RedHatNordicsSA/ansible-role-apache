@@ -3,3 +3,4 @@ apache_package_state: present
 apache_service_state: started
 apache_service_enabled: true
 apache_listen_port: 80
+apache_firewall_state: enabled

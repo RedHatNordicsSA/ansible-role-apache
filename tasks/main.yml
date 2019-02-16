@@ -10,6 +10,12 @@
     state: "{{ apache_service_state }}"
     enabled: "{{ apache_service_enabled }}"
 
+- name: Ensure firewalld has selected state.
+  firewalld:
+    port: "{{ apache_listen_port }}/tcp"
+    permanent: true
+    state: "{{ apache_firewall_state }}"
+
 - name: Configure Apache listen port.
   lineinfile:
     path: /etc/httpd/conf/httpd.conf
