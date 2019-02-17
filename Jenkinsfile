@@ -7,22 +7,22 @@ node() {
             sh 'source ~/molecule_ansible27/bin/activate'
         }
         stage ("Executing Molecule lint") {
-            sh 'molecule lint'
+            sh 'molecule lint -s kvm'
         }
         stage ("Executing Molecule create") {
-            sh 'molecule create'
+            sh 'molecule create -s kvm'
         }
         stage ("Executing Molecule converge") {
-            sh 'molecule converge'
+            sh 'molecule converge -s kvm'
         }
         stage ("Executing Molecule idemotence") {
-            sh 'molecule idempotence'
+            sh 'molecule idempotence -s kvm'
         }
         stage ("Executing Molecule verify") {
-            sh 'molecule verify'
+            sh 'molecule verify -s kvm'
         }
         stage ("Executing Molecule destroy") {
-            sh 'molecule destroy'
+            sh 'molecule destroy -s kvm'
         }
     } catch(all) {
         currentBuild.result = "FAILURE"
