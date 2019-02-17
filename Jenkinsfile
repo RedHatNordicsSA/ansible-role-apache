@@ -3,26 +3,41 @@ node() {
         stage ("Get Latest Code") {
             checkout scm
         }
-        stage ("Install Application Dependencies") {
-            sh 'source ~/molecule_ansible27/bin/activate'
-        }
         stage ("Executing Molecule lint") {
-            sh 'molecule lint -s kvm'
+            sh """
+            source ~/molecule_ansible27/bin/activate
+            molecule lint -s kvm
+            """
         }
         stage ("Executing Molecule create") {
-            sh 'molecule create -s kvm'
+            sh """
+            source ~/molecule_ansible27/bin/activate
+            molecule create -s kvm
+            """
         }
         stage ("Executing Molecule converge") {
-            sh 'molecule converge -s kvm'
+            sh """
+            source ~/molecule_ansible27/bin/activate
+            molecule converge -s kvm
+            """
         }
         stage ("Executing Molecule idemotence") {
-            sh 'molecule idempotence -s kvm'
+            sh """
+            source ~/molecule_ansible27/bin/activate
+            molecule idempotence -s kvm
+            """
         }
         stage ("Executing Molecule verify") {
-            sh 'molecule verify -s kvm'
+            sh """
+            source ~/molecule_ansible27/bin/activate
+            molecule verify -s kvm
+            """
         }
         stage ("Executing Molecule destroy") {
-            sh 'molecule destroy -s kvm'
+            sh """
+            source ~/molecule_ansible27/bin/activate
+            molecule destroy -s kvm
+            """
         }
     } catch(all) {
         currentBuild.result = "FAILURE"
