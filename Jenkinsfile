@@ -4,7 +4,7 @@ node() {
             checkout scm
         }
         stage ("Install Application Dependencies") {
-            sh 'source molecule_ansible27/bin/activate'
+            sh 'source ~/molecule_ansible27/bin/activate'
         }
         stage ("Executing Molecule lint") {
             sh 'molecule lint'
