@@ -3,7 +3,7 @@ node() {
         sh 'env'
         deleteDir()    
         withEnv(["ANSIBLE_ROLE_NAME=${env.JOB_NAME.tokenize('/')}"]) {
-            dir(ANSIBLE_ROLE_NAME[0]){
+            dir(ANSIBLE_ROLE_NAME[1]){
 		stage ("Get Latest Code") {
 		    checkout scm
 		}
