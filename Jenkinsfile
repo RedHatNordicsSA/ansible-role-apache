@@ -5,7 +5,7 @@ node() {
     try {
         sh 'env'
         deleteDir()    
-	dir(ANSIBLE_ROLE_NAME){
+	dir(jobconsolename){
 	    stage ("Get Latest Code") {
 		checkout scm
 	    }
