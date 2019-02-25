@@ -1,5 +1,6 @@
 node() {
     try {
+        sh 'env'
         deleteDir()    
         withEnv(["ANSIBLE_ROLE_NAME=${env.JOB_BASE_NAME}"]) {
             dir(ANSIBLE_ROLE_NAME){
