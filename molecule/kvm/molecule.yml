@@ -13,8 +13,10 @@ lint:
   options:
     config-file: tests/yamllint.yml
 platforms:
-  - name: centos7
+  - name: instance1
     box: centos/7
+    groups:
+      - rhel
 provisioner:
   name: ansible
   log: true
